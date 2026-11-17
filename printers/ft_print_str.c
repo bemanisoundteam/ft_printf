@@ -6,7 +6,7 @@
 /*   By: ccabanne <ccabanne@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/16 19:28:08 by ccabanne          #+#    #+#             */
-/*   Updated: 2026/11/16 22:05:42 by ccabanne         ###   ########.fr       */
+/*   Updated: 2026/11/17 16:10:17 by ccabanne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,7 @@
 
 ssize_t	ft_print_str(char *s)
 {
+	if (!s)
+		return (ft_print_str("(null)"));
 	return (write(1, s, ft_strlen(s)));
 }
