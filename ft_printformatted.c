@@ -6,7 +6,7 @@
 /*   By: ccabanne <ccabanne@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/16 19:27:07 by ccabanne          #+#    #+#             */
-/*   Updated: 2026/11/17 19:01:34 by ccabanne         ###   ########.fr       */
+/*   Updated: 2026/11/17 19:57:22 by ccabanne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,14 @@ int	ft_print_formatted(char format, va_list *args)
 	if (format == 'd' || format == 'i')
 		return (ft_print_str(ft_itoa(va_arg(*args, int)), FT_TRUE));
 	if (format == 'u')
-		return (ft_print_base(va_arg(*args, unsigned int), DECIMAL, ""));
+		return (ft_print_str(ft_uimtoa_base(
+					va_arg(*args, unsigned int), DECIMAL, ""), FT_TRUE));
 	if (format == 'x')
-		return (ft_print_base(va_arg(*args, unsigned int), LOW_HEX, ""));
+		return (ft_print_str(ft_uimtoa_base(
+					va_arg(*args, unsigned int), LOW_HEX, ""), FT_TRUE));
 	if (format == 'X')
-		return (ft_print_base(va_arg(*args, unsigned int), HIGH_HEX, ""));
+		return (ft_print_str(ft_uimtoa_base(
+					va_arg(*args, unsigned int), HIGH_HEX, ""), FT_TRUE));
 	if (format == '%')
 		return (ft_print_chr('%'));
 	return (-1);
