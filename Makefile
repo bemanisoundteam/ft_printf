@@ -1,6 +1,6 @@
 NAME = libftprintf.a
 LIBFT = libft/libft.a
-SOURCES = ft_printf.c ft_printformatted.c printers/ft_print_chr.c printers/ft_print_str.c printers/ft_print_ptr.c
+SOURCES = ft_printf.c printers/ft_print_chr.c printers/ft_print_str.c printers/ft_print_ptr.c
 OBJECTS = $(SOURCES:.c=.o)
 CC = cc
 CFLAGS += -I libft -Wall -Wextra -Werror
