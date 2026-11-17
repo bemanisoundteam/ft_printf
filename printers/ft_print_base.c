@@ -6,7 +6,7 @@
 /*   By: ccabanne <ccabanne@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/16 20:41:23 by ccabanne          #+#    #+#             */
-/*   Updated: 2026/11/16 22:59:45 by ccabanne         ###   ########.fr       */
+/*   Updated: 2026/11/17 14:44:41 by ccabanne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include <stdlib.h>
 #include <sys/types.h>
 
-static size_t	calc_nbr_len(int n, int base_len)
+static size_t	calc_nbr_len(intmax_t n, int base_len)
 {
 	size_t	ret;
 
