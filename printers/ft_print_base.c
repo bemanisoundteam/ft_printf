@@ -6,7 +6,7 @@
 /*   By: ccabanne <ccabanne@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/16 20:41:23 by ccabanne          #+#    #+#             */
-/*   Updated: 2026/11/17 15:57:37 by ccabanne         ###   ########.fr       */
+/*   Updated: 2026/11/17 16:57:58 by ccabanne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,12 @@
 #include <stdlib.h>
 #include <sys/types.h>
 
-static size_t	calc_nbr_len(intmax_t n, int base_len)
+static size_t	calc_nbr_len(uintmax_t n, size_t base_len)
 {
 	size_t	ret;
 
 	ret = 1;
-	if (n < 0)
-		ret++;
-	else
-		n *= -1;
-	while (n <= -(base_len))
+	while (n >= base_len)
 	{
 		ret++;
 		n /= base_len;
@@ -35,29 +31,28 @@ static size_t	calc_nbr_len(intmax_t n, int base_len)
 	return (ret + 1);
 }
 
-ssize_t	ft_print_base(intmax_t nbr, const char *base)
+ssize_t	ft_print_base(uintmax_t nbr, const char *base, const char *prefix)
 {
 	char	*str;
 	size_t	size;
-	int		base_len;
+	size_t	base_len;
+	size_t	prefix_len;
 	ssize_t	ret;
 
 	base_len = ft_strlen(base);
-	size = calc_nbr_len(nbr, base_len);
+	prefix_len = ft_strlen(prefix);
+	size = calc_nbr_len(nbr, base_len) + prefix_len;
 	str = malloc(size);
 	if (!str)
 		return (-1);
+	ft_memcpy(str, prefix, prefix_len);
 	str[--size] = '\0';
-	if (nbr < 0)
-		str[0] = '-';
-	else
-		nbr *= -1;
-	while (nbr <= -base_len)
+	while (nbr >= base_len)
 	{
-		str[--size] = base[-(nbr % base_len)];
+		str[--size] = base[nbr % base_len];
 		nbr /= base_len;
 	}
-	str[--size] = base[-nbr];
+	str[--size] = base[nbr];
 	ret = ft_print_str(str);
 	free(str);
 	return (ret);
