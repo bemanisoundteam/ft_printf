@@ -6,7 +6,7 @@
 /*   By: ccabanne <ccabanne@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/16 20:41:23 by ccabanne          #+#    #+#             */
-/*   Updated: 2026/11/17 14:44:41 by ccabanne         ###   ########.fr       */
+/*   Updated: 2026/11/17 15:57:37 by ccabanne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ static size_t	calc_nbr_len(intmax_t n, int base_len)
 
 ssize_t	ft_print_base(intmax_t nbr, const char *base)
 {
-	char 	*str;
+	char	*str;
 	size_t	size;
-	int	base_len;
+	int		base_len;
 	ssize_t	ret;
 
 	base_len = ft_strlen(base);
