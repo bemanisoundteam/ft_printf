@@ -6,7 +6,7 @@
 /*   By: ccabanne <ccabanne@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/16 20:41:23 by ccabanne          #+#    #+#             */
-/*   Updated: 2026/11/17 16:57:58 by ccabanne         ###   ########.fr       */
+/*   Updated: 2026/11/17 19:05:15 by ccabanne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ ssize_t	ft_print_base(uintmax_t nbr, const char *base, const char *prefix)
 	size_t	size;
 	size_t	base_len;
 	size_t	prefix_len;
-	ssize_t	ret;
 
 	base_len = ft_strlen(base);
 	prefix_len = ft_strlen(prefix);
@@ -53,7 +52,5 @@ ssize_t	ft_print_base(uintmax_t nbr, const char *base, const char *prefix)
 		nbr /= base_len;
 	}
 	str[--size] = base[nbr];
-	ret = ft_print_str(str);
-	free(str);
-	return (ret);
+	return (ft_print_str(str, FT_TRUE));
 }

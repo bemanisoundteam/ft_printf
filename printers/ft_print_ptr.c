@@ -6,7 +6,7 @@
 /*   By: ccabanne <ccabanne@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/16 19:29:54 by ccabanne          #+#    #+#             */
-/*   Updated: 2026/11/17 16:37:51 by ccabanne         ###   ########.fr       */
+/*   Updated: 2026/11/17 18:59:49 by ccabanne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 #include "printers.h"
 
+#include <libft.h>
+
 #include <unistd.h>
 #include <sys/types.h>
 
 ssize_t	ft_print_ptr(void *p)
 {
 	if (!p)
-		return (ft_print_str("(nil)"));
+		return (ft_print_str("(nil)", FT_FALSE));
 	return (ft_print_base((uintptr_t) p, LOW_HEX, "0x"));
 }
