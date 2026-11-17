@@ -6,7 +6,7 @@
 /*   By: ccabanne <ccabanne@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/16 13:04:10 by ccabanne          #+#    #+#             */
-/*   Updated: 2026/11/17 21:00:21 by ccabanne         ###   ########.fr       */
+/*   Updated: 2026/11/17 21:11:39 by ccabanne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,37 @@
 #define HIGH_HEX "0123456789ABCDEF"
 
 #include "ft_printf.h"
-#include "printers/printers.h"
 
 #include <libft.h>
 
 #include <unistd.h>
 #include <stdarg.h>
+#include <stdlib.h>
+
+static ssize_t	ft_print_chr(char c)
+{
+	return (write(1, &c, 1));
+}
+
+static ssize_t	ft_print_str(char *s, int freestr)
+{
+	ssize_t	ret;
+
+	if (!s)
+		return (ft_print_str("(null)", FT_FALSE));
+	ret = write(1, s, ft_strlen(s));
+	if (freestr)
+		free(s);
+	return (ret);
+}
+
+static	ssize_t	ft_print_ptr(void *p)
+{
+	if (!p)
+		return (ft_print_str("(nil)", FT_FALSE));
+	return (ft_print_str(ft_uimtoa_base(
+				(uintptr_t) p, LOW_HEX, "0x"), FT_TRUE));
+}
 
 static int	ft_print_formatted(char format, va_list *args)
 {
