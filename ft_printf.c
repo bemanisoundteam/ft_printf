@@ -6,7 +6,7 @@
 /*   By: ccabanne <ccabanne@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/16 13:04:10 by ccabanne          #+#    #+#             */
-/*   Updated: 2026/11/16 23:13:08 by ccabanne         ###   ########.fr       */
+/*   Updated: 2026/11/17 15:40:04 by ccabanne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	ft_printf(const char *format, ...)
 			continue ;
 		}
 		if (!ft_strchr(FORMAT_SPECIFIERS, *++format))
-			result = write(1, format - 1, 2);
+			result = write(1, format++ - 1, 2);
 		else
 			result = ft_print_formatted(*format++, &args);
 		if (result == -1)
