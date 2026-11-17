@@ -11,7 +11,8 @@ $(LIBFT):
 	$(MAKE) -C libft
 
 $(NAME): $(LIBFT) $(OBJECTS)
-	$(AR) rcs $(NAME) $(LIBFT) $(OBJECTS)
+	cp $(LIBFT) $(NAME)
+	$(AR) rcs $(NAME) $(OBJECTS)
 
 clean:
 	$(MAKE) -C libft $@
